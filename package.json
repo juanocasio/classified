@@ -17,6 +17,7 @@
     "angular-mocks": "^1.5.5",
     "angular-route": "^1.5.5",
     "angular-sanitize": "^1.5.5",
+    "bootstrap": "^3.3.6",
     "mdi": "^1.6.50"
   }
 }

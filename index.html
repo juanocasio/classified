@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="ngClassifieds">
 
 <head>
     <meta charset="UTF-8">
     <title>ngClassifieds</title>
     <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
     <link rel="stylesheet" href="node_modules/mdi/css/materialdesignicons.css">
+    <link rel="stylesheet" type="" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body ng-app="ngClassifieds" ng-controller="ClassifiedsCtrl">
+<body class="container-fluid" ng-controller="ClassifiedsCtrl">
+
     <md-toolbar>
         <div class="md-toolbar-tools">
             <p><strong>ngClassifieds</strong></p>
@@ -19,21 +21,22 @@
             </md-button>
         </div>
     </md-toolbar>
-    <md-content class="md-padding" layout="row" layout-wrap>
-        <md-card ng-repeat="classified in classifieds" flex="20">
-            <md-card-content>
-                <div class="classified-info">
-                    <h2 class="md-title">{{ classified.name }}</h2>
-                    <h3>{{ classified.type }}</h3>
-                    <h4>{{ classified.cook_time }}</h4>
-                    <ul ng-repeat="ingredient in ingredients">
-                        <li> {{ingredient}}</li>
-                    </ul>
-                </div>
-            </md-card-content>
-        </md-card>
-    </md-content>
-
+    <div class="row">
+        <md-content class="md-padding" layout="row" layout-wrap>
+            <md-card ng-repeat="classified in classifieds" flex="20">
+                <md-card-content>
+                    <div class="classified-info">
+                        <h2 class="md-title">{{ classified.type }}</h2>
+                        <h3>{{ classified.name }}</h3>
+                        <h4>Cook time {{ classified.cook_time }} min.</h4>
+                        <ul>
+                            <li ng-repeat="ingredient in classified.ingredients"> {{ ingredient }}</li>
+                        </ul>
+                    </div>
+                </md-card-content>
+            </md-card>
+        </md-content>
+    </div>
     <script src="node_modules/angular/angular.js"></script>
     <script src="scripts/app.js"></script>
     <script src="components/classifiedsController.js"></script>

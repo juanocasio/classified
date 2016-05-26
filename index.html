@@ -22,20 +22,22 @@
         </div>
     </md-toolbar>
     <div class="row">
-        <md-content class="md-padding" layout="row" layout-wrap>
-            <md-card ng-repeat="classified in classifieds" flex="20">
-                <md-card-content>
-                    <div class="classified-info">
-                        <h2 class="md-title">{{ classified.type }}</h2>
-                        <h3>{{ classified.name }}</h3>
-                        <h4>Cook time {{ classified.cook_time }} min.</h4>
-                        <ul>
-                            <li ng-repeat="ingredient in classified.ingredients"> {{ ingredient }}</li>
-                        </ul>
-                    </div>
-                </md-card-content>
-            </md-card>
-        </md-content>
+        <div class="col-sm-12">
+            <md-content class="md-padding" layout="row" layout-wrap>
+                <md-card ng-repeat="classified in classifieds" flex="30">
+                    <md-card-content>
+                        <div class="classified-info">
+                            <h2 class="md-title">{{ classified.type }}</h2>
+                            <h3>{{ classified.name }}</h3>
+                            <h4>Cook time {{ classified.cook_time }} min.</h4>
+                            <ul>
+                                <li ng-repeat="ingredient in classified.ingredients | orderBy: '-classified.ingredients'"> {{ ingredient  }}</li>
+                            </ul>
+                        </div>
+                    </md-card-content>
+                </md-card>
+            </md-content>
+        </div>
     </div>
     <script src="node_modules/angular/angular.js"></script>
     <script src="scripts/app.js"></script>
